@@ -1,0 +1,6 @@
+docker build -t test:pandas .
+# [-t] to tag the container
+# [.] to point to Dockerfile
+
+docker run -it test:pandas 2022 NobreConfrade
+# [-it] interactive mode, we can interact with the container
