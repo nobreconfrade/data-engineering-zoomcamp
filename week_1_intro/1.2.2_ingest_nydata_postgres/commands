@@ -1,3 +1,5 @@
+docker compose up
+
 pgcli -h localhost -p 5432 -u root -d ny_taxi
     # use [pgcli --help] to see what every arg is
 
