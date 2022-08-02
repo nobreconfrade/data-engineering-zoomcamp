@@ -1,0 +1,11 @@
+pgcli -h localhost -p 5432 -u root -d ny_taxi
+    # use [pgcli --help] to see what every arg is
+
+less --help
+    # use to read long files in bash, its a preview. You can pass [less (file/path)] 
+
+head -n 100 [file path]
+    # output the first 100 rows from a dataset, works with csv
+
+wc -l [file path]
+    # read how many rows the csv file has
