@@ -1,3 +1,3 @@
-week_1_intro/1.2.2_ingest_nydata_postgres/ingest_nydata/*
-week_1_intro/1.2.2_ingest_nydata_postgres/ny_taxi_postgres_data/*
-week_1_intro/1.2.2_ingest_nydata_postgres/ny_taxi_data/*
+week_1_intro/ingest_nydata_postgres/ingest_nydata/*
+week_1_intro/ingest_nydata_postgres/ny_taxi_postgres_data/*
+week_1_intro/ingest_nydata_postgres/ny_taxi_data/*
