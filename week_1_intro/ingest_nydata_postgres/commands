@@ -11,3 +11,37 @@ head -n 100 [file path]
 
 wc -l [file path]
     # read how many rows the csv file has
+
+ingest_nydata/bin/python3.10 ingest_pipeline.py \ 
+--user root \
+--password root \
+--host localhost \
+--port 5432 \
+--db ny_taxi \
+--table-name yellow_taxi_trips \ 
+--url https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet
+# same as above but without '\'
+ingest_nydata/bin/python3.10 ingest_pipeline.py --user root --password root --host localhost --port 5432 --db ny_taxi --table-name yellow_taxi_trips --url https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet
+
+docker run 
+-it 
+--network=ingest_nydata_postgres_default
+nyc_taxi_etl:0.0.1 
+--user root --password root --host pgdatabase --port 5432 --db ny_taxi --table-name yellow_taxi_trips --url [full NYC trips data URL path]
+
+python -m http.server
+    #run a very simple http server in the machine
+    
+docker run 
+-it 
+--network=ingest_nydata_postgres_default
+nyc_taxi_etl:0.0.1 
+--user root --password root --host pgdatabase --port 5432 --db ny_taxi --table-name yellow_taxi_trips --url http://172.22.159.255:8000/ny_taxi_data/yellow_tripdata_2022-01.parquet
+    #use this command to download the data from the host machine, avoiding downloading unecessary data
+    #need to setup a python http.server to get the file
+
+ip addr show
+    #show local machine IP in ubuntu
+
+*IMPORTANT NOTE*
+Docker can see the local machine under the eth0/inet IP adress
